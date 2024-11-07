@@ -1,107 +1,213 @@
 "use client";
+
 import React, { useState } from "react";
-import { ShoppingBag, User, Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import SearchBar from "react-ai-search-bar";
+import "react-ai-search-bar/dist/index.css";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const placeHolders = [
+    "What product or topic interests you?",
+    "What do you need help finding?",
+    "Hi, How can I help you?",
+    "Seeking inspiration? Let us assist you.",
+    "Whats the focus of your search?",
+    "How can we guide your journey?",
+  ];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="/pay-as-you-go"
-              className="text-gray-600 hover:text-blue-600"
-            >
+    <>
+      <nav className="flex items-center justify-between py-6 px-4 bg-white shadow-sm">
+        <div className="flex items-center space-x-6 xl:pl-24 ">
+          <div className="flex items-center">
+            <Image
+              src="/assets/LOGO.webp"
+              alt="Lyca Mobile Logo"
+              width={90}
+              height={34}
+              className="hidden md:block"
+            />
+            <Image
+              src="/assets/smallLogo.webp"
+              alt="Lyca Mobile Logo"
+              width={36}
+              height={36}
+              className="md:hidden"
+            />
+          </div>
+
+          <div
+            className=" h-[20px] w-[28px] cursor-pointer hidden lg:block"
+            onClick={toggleMenu}
+          >
+            <Image
+              src="/icons/ham.webp"
+              alt="Profile Icon"
+              width={28}
+              height={20}
+            />
+          </div>
+
+          {/* Links (hidden in mobile) */}
+          <div className="hidden xl:flex items-center space-x-6 text-sm text-gray-800 font-medium">
+            <Link href="#" className="hover:text-blue-600">
               Pay as you go
-            </a>
-            <a
-              href="/pay-monthly"
-              className="text-gray-600 hover:text-blue-600"
-            >
+            </Link>
+            <Link href="#" className="hover:text-blue-600">
               Pay monthly
-            </a>
-            <a href="/help" className="text-gray-600 hover:text-blue-600">
+            </Link>
+            <Link href="#" className="hover:text-blue-600">
               Help
-            </a>
-          </div>
-
-          {/* Right Side Items */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-              Quick top up
-            </button>
-            <button className="text-gray-600 hover:text-blue-600">
-              <User className="h-6 w-6" />
-            </button>
-            <button className="text-gray-600 hover:text-blue-600">
-              <ShoppingBag className="h-6 w-6" />
-            </button>
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-600">EN</span>
-              <img
-                src="/api/placeholder/24/24"
-                alt="UK flag"
-                className="w-6 h-6 rounded-full"
-              />
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-blue-600"
-            >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+            </Link>
           </div>
         </div>
-      </div>
+        <div className="lg:w-[480px] md:w-[300px] sm:mx-4 lg:py-2">
+          <SearchBar
+            placeholder={placeHolders}
+            client="Sorted"
+            top="60px"
+            theme="dark"
+          />
+        </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              href="/pay-as-you-go"
-              className="block px-3 py-2 text-gray-600 hover:text-blue-600"
-            >
-              Pay as you go
-            </a>
-            <a
-              href="/pay-monthly"
-              className="block px-3 py-2 text-gray-600 hover:text-blue-600"
-            >
-              Pay monthly
-            </a>
-            <a
-              href="/help"
-              className="block px-3 py-2 text-gray-600 hover:text-blue-600"
-            >
-              Help
-            </a>
-            <button className="w-full text-left px-3 py-2 text-gray-600 hover:text-blue-600">
-              Quick top up
-            </button>
-            <div className="px-3 py-2 flex items-center space-x-2">
-              <span className="text-gray-600">EN</span>
-              <img
-                src="/api/placeholder/24/24"
-                alt="UK flag"
-                className="w-6 h-6 rounded-full"
+        {/* Right Section: Buttons and Hamburger Menu */}
+        <div className="flex items-center  space-x-4 xl:pr-24 ">
+          {/* Quick Top Up Button */}
+          <button className="bg-blue-600 text-white text-[13px] px-4 py-2  rounded hover:bg-blue-700 transition hidden md:block w-[130px]">
+            Quick top up
+          </button>
+
+          {/* Icons */}
+          <div className="md:flex  items-center space-x-4 hidden">
+            {/* Profile Icon */}
+            <div className="relative cursor-pointer">
+              <Image
+                src="/icons/profile.svg"
+                alt="Profile Icon"
+                width={28}
+                height={28}
               />
             </div>
+
+            {/* Cart Icon */}
+            <div className="relative cursor-pointer">
+              <Image
+                src="/icons/Carts.svg"
+                alt="Cart Icon"
+                width={28}
+                height={28}
+              />
+            </div>
+
+            {/* Language Selector */}
+            <div className="md:flex hidden items-center space-x-2 text-sm text-gray-800">
+              <span>EN</span>
+              <Image
+                src="/icons/flag-uk.png"
+                alt="UK Flag"
+                width={28}
+                height={28}
+              />
+            </div>
+          </div>
+          <div
+            className=" h-[20px] w-[28px] cursor-pointer lg:hidden"
+            onClick={toggleMenu}
+          >
+            <Image
+              src="/icons/ham.webp"
+              alt="Profile Icon"
+              width={28}
+              height={20}
+            />
+          </div>
+        </div>
+      </nav>
+
+      {/* Sliding Menu */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-white z-50 md:w-1/4 w-full flex flex-col p-6  px-8 space-y-6 shadow-lg">
+          {/* Close Button */}
+          <div className="flex justify-between items-center cursor-pointer">
+            <div>
+              <Image
+                src="/assets/smallLogo.webp"
+                alt="Lyca Mobile Logo"
+                width={70}
+                height={20}
+              />
+            </div>
+            <div onClick={toggleMenu}>
+              <Image
+                src="/icons/close_circle.svg"
+                alt=""
+                width={40}
+                height={40}
+              />
+            </div>
+          </div>
+          <div className="flex justify-between items-center ">
+            <Link
+              href="#"
+              className="text-gray-800 text-lg hover:text-blue-600 "
+            >
+              Pay as you go
+            </Link>
+            <Image src="/icons/plusIcon.svg" alt="" width={16} height={16} />
+          </div>
+          <div className="flex justify-between items-center ">
+            <Link
+              href="#"
+              className="text-gray-800 text-lg hover:text-blue-600"
+            >
+              Pay monthly
+            </Link>
+            <Image src="/icons/plusIcon.svg" alt="" width={16} height={16} />
+          </div>
+          <div className="flex justify-between items-center">
+            <Link
+              href="#"
+              className="text-gray-800 text-lg hover:text-blue-600"
+            >
+              Already with us
+            </Link>
+            <Image src="/icons/plusIcon.svg" alt="" width={16} height={16} />
+          </div>
+          <div className="flex justify-between items-center">
+            <Link
+              href="#"
+              className="text-gray-800 text-lg hover:text-blue-600"
+            >
+              Help & support
+            </Link>
+            <Image src="/icons/plusIcon.svg" alt="" width={16} height={16} />
+          </div>
+          <div className="flex justify-between items-center">
+            <Link
+              href="#"
+              className="text-gray-800 text-lg hover:text-blue-600"
+            >
+              Lyca Mobile UK
+            </Link>
+            <Image src="/icons/plusIcon.svg" alt="" width={16} height={16} />
+          </div>
+          <div className="flex justify-between items-center">
+            <Link
+              href="#"
+              className="text-gray-800 text-lg hover:text-blue-600"
+            >
+              {" "}
+              Language
+            </Link>
+            <Image src="/icons/plusIcon.svg" alt="" width={16} height={16} />
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 

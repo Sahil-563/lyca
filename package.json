@@ -16,7 +16,7 @@
     "lucide-react": "^0.454.0",
     "next": "15.0.2",
     "react": "^18",
-    "react-ai-search-bar": "^1.0.4-beta.6",
+    "react-ai-search-bar": "^1.0.4-beta.8",
     "react-dom": "^18",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",

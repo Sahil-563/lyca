@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between py-6 px-4 bg-white shadow-sm">
+      <nav className=" sticky z-20 top-0 flex items-center justify-between py-4 px-4 bg-white shadow-sm ">
         <div className="flex items-center space-x-6 xl:pl-24 ">
           <div className="flex items-center">
             <Image
@@ -30,13 +30,6 @@ const Navbar = () => {
               width={90}
               height={34}
               className="hidden md:block"
-            />
-            <Image
-              src="/assets/smallLogo.webp"
-              alt="Lyca Mobile Logo"
-              width={36}
-              height={36}
-              className="md:hidden"
             />
           </div>
 
@@ -54,13 +47,13 @@ const Navbar = () => {
 
           {/* Links (hidden in mobile) */}
           <div className="hidden xl:flex items-center space-x-6 text-sm text-gray-800 font-medium">
-            <Link href="#" className="hover:text-blue-600">
+            <Link href="#" className="hover:text-blue-600 font-bold">
               Pay as you go
             </Link>
-            <Link href="#" className="hover:text-blue-600">
+            <Link href="#" className="hover:text-blue-600 font-bold">
               Pay monthly
             </Link>
-            <Link href="#" className="hover:text-blue-600">
+            <Link href="#" className="hover:text-blue-600 font-bold">
               Help
             </Link>
           </div>
@@ -77,7 +70,7 @@ const Navbar = () => {
         {/* Right Section: Buttons and Hamburger Menu */}
         <div className="flex items-center  space-x-4 xl:pr-24 ">
           {/* Quick Top Up Button */}
-          <button className="bg-blue-600 text-white text-[13px] px-4 py-2  rounded hover:bg-blue-700 transition hidden md:block w-[130px]">
+          <button className="bg-blue-600 font-bold text-white text-[13px] px-4 py-2  rounded hover:bg-blue-700 transition hidden md:block w-[130px]">
             Quick top up
           </button>
 

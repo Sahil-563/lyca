@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <>
       <nav className=" sticky z-20 top-0 flex items-center justify-between py-4 px-4 bg-white shadow-sm ">
-        <div className="flex items-center space-x-6 xl:pl-24 ">
+        <div className="flex items-center space-x-6 xl:pl-10 ">
           <div className="flex items-center">
             <Image
               src="/assets/LOGO.webp"
@@ -46,11 +46,11 @@ const Navbar = () => {
           </div>
 
           {/* Links (hidden in mobile) */}
-          <div className="hidden xl:flex items-center space-x-6 text-sm text-gray-800 font-medium">
-            <Link href="#" className="hover:text-blue-600 font-bold">
+          <div className="hidden xl:flex items-center space-x-4 text-sm text-gray-800 font-medium nav-links">
+            <Link href="#" className="hover:text-blue-600 font-bold w-[100px]">
               Pay as you go
             </Link>
-            <Link href="#" className="hover:text-blue-600 font-bold">
+            <Link href="#" className="hover:text-blue-600 font-bold w-[100px]">
               Pay monthly
             </Link>
             <Link href="#" className="hover:text-blue-600 font-bold">
@@ -58,7 +58,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="lg:w-[480px] md:w-[300px] sm:mx-4 lg:py-2">
+        <div className="lg:w-[580px] md:w-[300px] sm:mx-4 lg:py-2">
           <SearchBar
             placeholder={placeHolders}
             client="Sorted"
@@ -68,7 +68,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Section: Buttons and Hamburger Menu */}
-        <div className="flex items-center  space-x-4 xl:pr-24 ">
+        <div className="flex items-center  space-x-4 xl:pr-10 ">
           {/* Quick Top Up Button */}
           <button className="bg-blue-600 font-bold text-white text-[13px] px-4 py-2  rounded hover:bg-blue-700 transition hidden md:block w-[130px]">
             Quick top up
@@ -146,7 +146,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center ">
             <Link
               href="#"
-              className="text-gray-800 text-lg hover:text-blue-600 "
+              className="text-gray-800 text-lg hover:text-blue-600"
             >
               Pay as you go
             </Link>

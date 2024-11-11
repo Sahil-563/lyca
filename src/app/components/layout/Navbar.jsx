@@ -22,14 +22,13 @@ const Navbar = () => {
   return (
     <>
       <nav className=" sticky z-20 top-0 flex items-center justify-between py-4 px-4 bg-white shadow-sm ">
-        <div className="flex items-center space-x-6 xl:pl-10 ">
-          <div className="flex items-center">
+        <div className="md:flex items-center space-x-6 xl:pl-10 hidden">
+          <div className="items-center ">
             <Image
               src="/assets/LOGO.webp"
               alt="Lyca Mobile Logo"
               width={90}
               height={34}
-              className="hidden md:block"
             />
           </div>
 
@@ -58,7 +57,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="lg:w-[580px] md:w-[300px] sm:mx-4 lg:py-2">
+        <div className="lg:w-[580px] md:w-[300px] sm:mx-2 lg:py-2">
           <SearchBar
             placeholder={placeHolders}
             client="Sorted"

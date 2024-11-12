@@ -61,7 +61,7 @@ const Navbar = () => {
           <SearchBar
             placeholder={placeHolders}
             client="Sorted"
-            top="60px"
+            top="90px"
             theme="dark"
           />
         </div>
